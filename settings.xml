@@ -1,0 +1,46 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <!-- Mirror để thay thế Maven Central -->
+  <mirrors>
+    <mirror>
+      <id>custom-mirror</id>
+      <mirrorOf>central</mirrorOf>
+      <url>https://repo.maven.apache.org/maven2/</url> <!-- bạn thay URL này nếu có repo riêng -->
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>custom-profile</id>
+      <repositories>
+        <repository>
+          <id>custom-repo</id>
+          <url>https://repo.maven.apache.org/maven2/</url>  <!-- Thay URL repo nếu cần -->
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>custom-profile</activeProfile>
+  </activeProfiles>
+
+  <!-- Nếu repo cần auth thì cấu hình ở đây (bạn có thể bỏ phần này nếu không cần) -->
+  <!-- <servers>
+    <server>
+      <id>custom-repo</id>
+      <username>your-username</username>
+      <password>your-password</password>
+    </server>
+  </servers> -->
+
+</settings>
