@@ -14,10 +14,10 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 
-        // Cho phép frontend Netlify gọi
-        config.setAllowedOrigins(Arrays.asList(
-                "https://my-app-frontend-netlify.netlify.app",
-                "http://localhost:3000" // để test local
+        // Cho phép frontend Netlify gọi + test local
+        config.setAllowedOriginPatterns(Arrays.asList(
+                "https://*.netlify.app",
+                "http://localhost:3000"
         ));
 
         // Các method cần thiết
